@@ -12,12 +12,12 @@ public class PresenceElementsOnHomePageTest extends BaseTest {
     public final void homePageElementsTest() {
         SoftAssert softAssert = new SoftAssert();
         HomePage homePage = new HomePage(driver);
+        List<String> actualListOfHeaderLinks = List.of("+919711-111-558", "+919711-191-558", "+1 646-480-0603", "seleniumcoaching", "trainer@way2automation.com");
+        List<String> actualListOfMenuLinks = List.of("Home", "All Courses", "Video Tutorial", "Resources", "Careers", "Lifetime Membership", "Blog", "Forum", "Member Login");
         softAssert.assertTrue(driver.getTitle().contains("Way2Automation"),"Title страницы не содержит \"Way2Automation\". Открылась не главная страница");
 
         String coursesBlockText = homePage.titleOfCoursesBlock();
         String certificationBlockText = homePage.titleOfCertificationBlock();
-        List<String> actualListOfHeaderLinks = List.of("+919711-111-558", "+919711-191-558", "+1 646-480-0603", "seleniumcoaching", "trainer@way2automation.com");
-        List<String> actualListOfMenuLinks = List.of("Home", "All Courses", "Video Tutorial", "Resources", "Careers", "Lifetime Membership", "Blog", "Forum", "Member Login");
         ArrayList<String> expectedListOfHeaderLinks = homePage.getContactDetailsOfHeader();
         ArrayList<String> expectedListOfHMenuLinks = homePage.getLinksOfHorizontalMenu();
 

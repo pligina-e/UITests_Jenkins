@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.ArrayList;
@@ -87,5 +88,12 @@ public class HomePage extends BasePage {
     public Boolean presenceOfFooter() {
         waitUntilVisibleElement(driver, footer);
         return footer.isDisplayed();
+    }
+
+    public HomePage goToElement() {
+        Actions actions = new Actions(driver);
+        waitUntilVisibleElement(driver, coursesBlock);
+        actions.moveToElement(coursesBlock).perform();
+        return this;
     }
 }

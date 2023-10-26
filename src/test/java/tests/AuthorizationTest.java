@@ -15,9 +15,6 @@ public class AuthorizationTest extends BaseTest {
         authorizationPage.pressMenuButtons();
         softAssert.assertEquals(driver.getTitle(), "Protractor and AngularJS practice - sample website", "Открылась не та страница при нажатии Resources -> Practice Site2");
         authorizationPage.pressImageRegistration();
-        for (String winHandle : driver.getWindowHandles()) {
-            driver.switchTo().window(winHandle);
-        }
         softAssert.assertTrue(driver.getTitle().contains("Registration"), "Title страницы не содержит \"Registration\". Страница авторизации не открылась");
         authorizationPage.fillFields(loginDetails.get(0), loginDetails.get(1));
         softAssert.assertEquals("Home", authorizationPage.getLabelText(), "Авторизация не прошла успешно");
