@@ -38,6 +38,9 @@ public class AuthorizationPage extends BasePage {
 
     public AuthorizationPage pressImageRegistration() {
         waitThenClick(driver, registrationImage);
+        for (String winHandle : driver.getWindowHandles()) {
+            driver.switchTo().window(winHandle);
+        }
         return this;
     }
 
