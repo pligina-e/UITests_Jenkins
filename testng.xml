@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name = "Presence elements test">
+        <classes>
+            <class name = "tests.PresenceElementsOnHomePageTest" />
+        </classes>
+    </test>
+    <test name = "PracticeSite Page test">
+        <classes>
+            <class name = "tests.PracticeSitePageTest" />
+        </classes>
+    </test>
+    <test name = "Scrolling page test">
+        <classes>
+            <class name = "tests.ScrollPageToCheckMenuTest" />
+        </classes>
+    </test>
+    <test name = "Authorization test">
+        <classes>
+            <class name = "tests.AuthorizationTest" />
+        </classes>
+    </test>
+</suite>

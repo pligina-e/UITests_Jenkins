@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,16 +38,19 @@ public class HomePage extends BasePage {
         super(webDriver);
     }
 
+    @Step("Определение наличия хидера на странице")
     public Boolean presenceOfHeader() {
         waitUntilVisibleElement(driver, header);
         return header.isDisplayed();
     }
 
+    @Step("Определение наличия горизонтального меню на странице")
     public Boolean presenceOfMenu() {
         waitUntilVisibleElement(driver, horizontalMenu);
         return horizontalMenu.isDisplayed();
     }
 
+    @Step("Запоминание реквизитов для связи хидера")
     public ArrayList<String> getContactDetailsOfHeader() {
         waitUntilVisibleAllElements(driver, contactDetailsOfHeader);
         ArrayList<String> listOfLinksHeader = contactDetailsOfHeader.stream()
@@ -55,6 +59,7 @@ public class HomePage extends BasePage {
         return listOfLinksHeader;
     }
 
+    @Step("Запоминание ссылок горизонтального меню")
     public ArrayList<String> getLinksOfHorizontalMenu() {
         waitUntilVisibleAllElements(driver, linksOfHorizontalMenu);
         ArrayList<String> listOfLinksMenu = linksOfHorizontalMenu.stream()
@@ -63,16 +68,19 @@ public class HomePage extends BasePage {
         return listOfLinksMenu;
     }
 
+    @Step("Запоминание текста над блоком сертификации")
     public String titleOfCertificationBlock() {
         waitUntilVisibleElement(driver, certificationBlockLabel);
         return certificationBlockLabel.getText();
     }
 
+    @Step("Определение наличия блока сертификации на странице")
     public Boolean presenceOfCertificationBlock() {
         waitUntilVisibleElement(driver, certificationBlock);
         return certificationBlock.isDisplayed();
     }
 
+    @Step("Перемещение к блоку с курсами и запоминание текста над блоком")
     public String titleOfCoursesBlock() {
         waitUntilVisibleElement(driver, coursesBlockLabel);
         JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
@@ -80,16 +88,19 @@ public class HomePage extends BasePage {
         return coursesBlockLabel.getText();
     }
 
+    @Step("Определение наличия блока с курсами на странице")
     public Boolean presenceOfCoursesBlock() {
         waitUntilVisibleElement(driver, coursesBlock);
         return coursesBlock.isDisplayed();
     }
 
+    @Step("Определение наличия футера на странице")
     public Boolean presenceOfFooter() {
         waitUntilVisibleElement(driver, footer);
         return footer.isDisplayed();
     }
 
+    @Step("Перемещение к определенному элементу на странице")
     public HomePage goToElement() {
         Actions actions = new Actions(driver);
         waitUntilVisibleElement(driver, coursesBlock);

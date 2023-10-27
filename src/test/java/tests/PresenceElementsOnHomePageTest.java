@@ -1,5 +1,10 @@
 package tests;
 
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import pages.HomePage;
@@ -7,8 +12,12 @@ import pages.HomePage;
 import java.util.ArrayList;
 import java.util.List;
 
+@Epic("Тестирование главной страницы")
+@Feature("Элементы  отображаются на странице")
 public class PresenceElementsOnHomePageTest extends BaseTest {
     @Test(description = "Проверка наличия элементов главной страницы")
+    @Severity(SeverityLevel.BLOCKER)
+    @Story("Пользователь видит на главной странице хидер, горизонтальное меню, блок сертификации, блок с курсами, футер")
     public final void homePageElementsTest() {
         SoftAssert softAssert = new SoftAssert();
         HomePage homePage = new HomePage(driver);
