@@ -12,11 +12,11 @@ import pages.HomePage;
 import java.util.ArrayList;
 import java.util.List;
 
+@Epic("Тестирование главной страницы")
+@Feature("При скроллинге отображается основное меню в шапке")
 public class ScrollPageToCheckMenuTest extends BaseTest {
     @Test(description = "Проверка того, что при скроллинге отображается основное меню в шапке на главной")
     @Severity(SeverityLevel.NORMAL)
-    @Epic("Тестирование главной страницы")
-    @Feature("При скроллинге отображается основное меню в шапке")
     @Story("Меню отображается в шапке, когда пользователь скроллит главную страницу")
     public final void scrollPageToCheckMenuTest() {
         SoftAssert softAssert = new SoftAssert();

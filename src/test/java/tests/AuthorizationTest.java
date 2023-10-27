@@ -4,7 +4,6 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import io.qameta.allure.Step;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -12,11 +11,11 @@ import pages.AuthorizationPage;
 
 import java.util.List;
 
+@Epic("Тестирование вкладки авторизации")
+@Feature("Авторизация")
 public class AuthorizationTest extends BaseTest {
     @Test(description = "Авторизация через меню Resources -> Practice Site2")
     @Severity(SeverityLevel.CRITICAL)
-    @Epic("Тестирование вкладки авторизации")
-    @Feature("Авторизация")
     @Story("Пользователь вводит корректные данные в поля Username, Password, Description, чтобы успешно авторизироваться")
     public final void authorizationPositiveTest() {
         SoftAssert softAssert = new SoftAssert();

@@ -12,11 +12,11 @@ import pages.HomePage;
 import java.util.ArrayList;
 import java.util.List;
 
+@Epic("Тестирование главной страницы")
+@Feature("Элементы  отображаются на странице")
 public class PresenceElementsOnHomePageTest extends BaseTest {
     @Test(description = "Проверка наличия элементов главной страницы")
     @Severity(SeverityLevel.BLOCKER)
-    @Epic("Тестирование главной страницы")
-    @Feature("Элементы  отображаются на странице")
     @Story("Пользователь видит на главной странице хидер, горизонтальное меню, блок сертификации, блок с курсами, футер")
     public final void homePageElementsTest() {
         SoftAssert softAssert = new SoftAssert();
