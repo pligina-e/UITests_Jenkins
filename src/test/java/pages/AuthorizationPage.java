@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,12 +31,14 @@ public class AuthorizationPage extends BasePage {
         super(webDriver);
     }
 
+    @Step("Нажатие кнопок в горизонтальном меню для перехода на другую страницу")
     public AuthorizationPage pressMenuButtons() {
         waitThenClick(driver, resourcesButton);
         waitThenClick(driver, practiceSite2Select);
         return this;
     }
 
+    @Step("Нажатие на кнопку-картинку и переход на открывшуюся вкладку")
     public AuthorizationPage pressImageRegistration() {
         waitThenClick(driver, registrationImage);
         for (String winHandle : driver.getWindowHandles()) {
@@ -44,6 +47,7 @@ public class AuthorizationPage extends BasePage {
         return this;
     }
 
+    @Step("Заполнение поля Username значением {0}, поля Password значением {1}, поля User description значением {0}")
     public AuthorizationPage fillFields(String username, String password) {
         inputText(driver, usernameField, username);
         inputText(driver, passwordField, password);
@@ -52,6 +56,7 @@ public class AuthorizationPage extends BasePage {
         return this;
     }
 
+    @Step("Запоминание текста на странице после успешной авторизации")
     public String getLabelText() {
         waitUntilVisibleElement(driver, successfulLoginLabel);
         return successfulLoginLabel.getText();

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,6 +17,7 @@ public class PracticeSitePage extends BasePage {
         super(webDriver);
     }
 
+    @Step("Нажатие кнопок в горизонтальном меню для перехода на другую страницу")
     public PracticeSitePage pressMenuButtons() {
         waitThenClick(driver, resourcesButton);
         waitThenClick(driver, practiceSite1Select);
