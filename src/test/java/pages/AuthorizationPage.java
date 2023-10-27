@@ -26,6 +26,8 @@ public class AuthorizationPage extends BasePage {
     WebElement loginButton;
     @FindBy(css = "h1.ng-scope")
     WebElement successfulLoginLabel;
+    @FindBy(css = "div.alert-danger")
+    WebElement errorLoginLabel;
 
     public AuthorizationPage(final WebDriver webDriver) {
         super(webDriver);
@@ -47,11 +49,11 @@ public class AuthorizationPage extends BasePage {
         return this;
     }
 
-    @Step("Заполнение поля Username значением {0}, поля Password значением {1}, поля User description значением {0}")
-    public AuthorizationPage fillFields(String username, String password) {
+    @Step("Заполнение поля Username значением {0}, поля Password значением {1}, поля User description значением {2}")
+    public AuthorizationPage fillFields(String username, String password, String description) {
         inputText(driver, usernameField, username);
         inputText(driver, passwordField, password);
-        inputText(driver, usernameDescriptionField, username);
+        inputText(driver, usernameDescriptionField, description);
         waitThenClick(driver, loginButton);
         return this;
     }
@@ -60,5 +62,11 @@ public class AuthorizationPage extends BasePage {
     public String getLabelText() {
         waitUntilVisibleElement(driver, successfulLoginLabel);
         return successfulLoginLabel.getText();
+    }
+
+    @Step("Запоминание текста ошибки при введении некорректных данных")
+    public String getErrorText() {
+        waitUntilVisibleElement(driver, errorLoginLabel);
+        return errorLoginLabel.getText();
     }
 }
