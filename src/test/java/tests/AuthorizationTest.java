@@ -20,12 +20,12 @@ public class AuthorizationTest extends BaseTest {
     public final void authorizationPositiveTest() {
         SoftAssert softAssert = new SoftAssert();
         AuthorizationPage authorizationPage = new AuthorizationPage(driver);
-        List<String> loginDetails = List.of("angular", "password");
+        List<String> loginDetails = List.of("angular", "password", "description");
         authorizationPage.pressMenuButtons();
         softAssert.assertEquals(driver.getTitle(), "Protractor and AngularJS practice - sample website", "Открылась не та страница при нажатии Resources -> Practice Site2");
         authorizationPage.pressImageRegistration();
         softAssert.assertTrue(driver.getTitle().contains("Registration"), "Title страницы не содержит \"Registration\". Страница авторизации не открылась");
-        authorizationPage.fillFields(loginDetails.get(0), loginDetails.get(1));
+        authorizationPage.fillFields(loginDetails.get(0), loginDetails.get(1), loginDetails.get(2));
         softAssert.assertEquals("Home", authorizationPage.getLabelText(), "Авторизация не прошла успешно");
         softAssert.assertAll();
     }
