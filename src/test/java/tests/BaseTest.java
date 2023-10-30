@@ -13,6 +13,7 @@ import java.time.Duration;
 
 public class BaseTest {
     WebDriver driver;
+    public static ThreadLocal<WebDriver> tdriver = new ThreadLocal<WebDriver>();
 
     @BeforeMethod
     public void init(final ITestContext context) {
@@ -38,7 +39,12 @@ public class BaseTest {
 
         context.setAttribute("driver", driver);
         String webUrl = PropertyProvider.getInstance().getProperty("web.url");
+        tdriver.set(driver);
         driver.get(webUrl);
+    }
+
+    public static synchronized WebDriver getDriver() {
+        return tdriver.get();
     }
 
     @AfterMethod
