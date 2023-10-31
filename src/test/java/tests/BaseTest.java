@@ -38,7 +38,7 @@ public class BaseTest {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(pageLoadTimeout));
 
         context.setAttribute("driver", driver);
-        String webUrl = PropertyProvider.getInstance().getProperty("web.url");
+        String webUrl = PropertyProvider.getInstance().getProperty("sql.web.url");
         tdriver.set(driver);
         driver.get(webUrl);
     }
