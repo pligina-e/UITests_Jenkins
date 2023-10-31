@@ -1,5 +1,6 @@
 package tests;
 
+import helpers.PropertyProvider;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -37,9 +38,9 @@ public class VariousAuthorizationTest extends BaseTest {
         softAssert.assertTrue(driver.getTitle().contains("Registration"), "Title страницы не содержит \"Registration\". Страница авторизации не открылась");
         softAssert.assertAll();
         authorizationPage.fillFields(username, password, description);
-        if (driver.getCurrentUrl() == "https://www.way2automation.com/angularjs-protractor/registeration/#/login") {
+        if (driver.getCurrentUrl() == PropertyProvider.getInstance().getProperty("authorization.url")) {
             Assert.assertEquals("Username or password is incorrect", authorizationPage.getErrorText(), "Текст ошибки не совпадает с текстом \"Username or password is incorrect\"");
-        } else if (driver.getCurrentUrl() == "https://www.way2automation.com/angularjs-protractor/registeration/#/") {
+        } else if (driver.getCurrentUrl() == PropertyProvider.getInstance().getProperty("successful.authorization.url")) {
             Assert.assertEquals("Home", authorizationPage.getLabelText(), "Что-то пошло не так при авторизации");
         }
     }
