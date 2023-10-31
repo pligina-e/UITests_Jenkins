@@ -1,5 +1,6 @@
 package tests;
 
+import helpers.Cookies;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
@@ -17,8 +18,9 @@ public class SQLExercisesLoginTest extends BaseTest {
     @Story("Пользователь вводит данные в поля Логин и Пароль, затем нажимает на кнопку Войти, чтобы авторизироваться")
     public final void loginTest() {
         SQLExercisesPage exercisesPage = new SQLExercisesPage(driver);
+        Cookies cookies = new Cookies(driver);
         exercisesPage.fillFields("pligina-e", "1234554321999");
-        exercisesPage.createFileWithCookie();
+        cookies.createFileWithCookie();
         Assert.assertTrue(exercisesPage.presenceOfImageButton(), "Авторизация не прошла успешно. Возможно, введены некорректные данные");
     }
 
@@ -27,7 +29,8 @@ public class SQLExercisesLoginTest extends BaseTest {
     @Story("Авторизация с помощью cookie")
     public final void loginWithCookieTest() {
         SQLExercisesPage exercisesPage = new SQLExercisesPage(driver);
-        exercisesPage.addCookieForLogin();
+        Cookies cookies = new Cookies(driver);
+        cookies.addCookieForLogin();
         Assert.assertTrue(exercisesPage.presenceOfImageButton(), "Авторизация не прошла успешно. Возможно, cookie неправильно загрузились на сайт");
     }
 }
