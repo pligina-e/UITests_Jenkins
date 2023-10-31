@@ -20,7 +20,7 @@ public class SQLExercisesLoginTest extends BaseTest {
         SQLExercisesPage exercisesPage = new SQLExercisesPage(driver);
         Cookies cookies = new Cookies(driver);
         exercisesPage.fillFields("pligina-e", "1234554321999");
-        cookies.createFileWithCookie();
+        cookies.createFileWithCookie(driver, "PHPSESSID");
         Assert.assertTrue(exercisesPage.presenceOfImageButton(), "Авторизация не прошла успешно. Возможно, введены некорректные данные");
     }
 
@@ -30,7 +30,7 @@ public class SQLExercisesLoginTest extends BaseTest {
     public final void loginWithCookieTest() {
         SQLExercisesPage exercisesPage = new SQLExercisesPage(driver);
         Cookies cookies = new Cookies(driver);
-        cookies.addCookieForLogin();
+        cookies.addCookieForLogin(driver, "PHPSESSID");
         Assert.assertTrue(exercisesPage.presenceOfImageButton(), "Авторизация не прошла успешно. Возможно, cookie неправильно загрузились на сайт");
     }
 }
