@@ -1,46 +1,28 @@
 package tests;
 
 import helpers.PropertyProvider;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.ITestContext;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import java.time.Duration;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class BaseTest {
     WebDriver driver;
     public static ThreadLocal<WebDriver> tdriver = new ThreadLocal<WebDriver>();
+    DesiredCapabilities capabilities = new DesiredCapabilities();
 
     @BeforeMethod
-    public void init(final ITestContext context) {
-        String browserName = PropertyProvider.getInstance().getProperty("browser.name");
-        int pageLoadTimeout = Integer.parseInt(PropertyProvider.getInstance().getProperty("page.load.timeout"));
-        WebDriverManager.getInstance(browserName).setup();
-
-        switch (browserName) {
-            case "chrome" -> driver = new ChromeDriver(new ChromeOptions()
-                    .addArguments("--remote-allow-origins=*")
-                    .addArguments("--disable-gpu")
-                    .addArguments("--start-maximized")
-                    .addArguments("enable-automation")
-                    .addArguments("--no-sandbox")
-                    .addArguments("--disable-extensions")
-                    .addArguments("--dns-prefetch-disable")
-            );
-            default -> throw new IllegalStateException("Unexpected value: " + browserName);
-        }
-
-        driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(pageLoadTimeout));
-
-        context.setAttribute("driver", driver);
-        String webUrl = PropertyProvider.getInstance().getProperty("profile.form.web.url");
+    public void setCapabilities() throws MalformedURLException {
+        capabilities.setBrowserName("chrome");
+        capabilities.setPlatform(Platform.WIN10);
+        driver = new RemoteWebDriver(new URL("http://192.168.1.67:4444"), capabilities);
+        driver.get(PropertyProvider.getInstance().getProperty("web.url"));
         tdriver.set(driver);
-        driver.get(webUrl);
     }
 
     public static synchronized WebDriver getDriver() {
