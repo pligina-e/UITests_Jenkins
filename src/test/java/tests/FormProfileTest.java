@@ -15,7 +15,7 @@ public class FormProfileTest extends BaseTest {
     @Test
     @Severity(SeverityLevel.CRITICAL)
     @Story("Пользователь может убрать фокус с поля ввода, а также увидеть скролл на странице")
-    public final void openPracticeSite2PageTest() {
+    public final void multiformPageTest() {
         MultiformPage multiformPage = new MultiformPage(driver);
         Assert.assertTrue(multiformPage.presenceOfScroll(), "Скролл не найден на странице");
         Assert.assertTrue(multiformPage.removeFocus(), "Фокус не убран с поля ввода");
