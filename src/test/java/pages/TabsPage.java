@@ -15,7 +15,7 @@ public class TabsPage extends BasePage {
         super(webDriver);
     }
 
-    @Step("Нажать на ссылку, перейти на новую вкладку и вернуть количество открытых вкладок")
+    @Step("РќР°Р¶Р°С‚СЊ РЅР° СЃСЃС‹Р»РєСѓ, РїРµСЂРµР№С‚Рё РЅР° РЅРѕРІСѓСЋ РІРєР»Р°РґРєСѓ Рё РІРµСЂРЅСѓС‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕС‚РєСЂС‹С‚С‹С… РІРєР»Р°РґРѕРє")
     public int clickLinkAndGoToNewTab(int count) {
         link.click();
         for (String winHandle : driver.getWindowHandles()) {
@@ -24,7 +24,7 @@ public class TabsPage extends BasePage {
         }
         return count;
     }
-    @Step("Кликаем по ссылке и переходим на новую вкладку х2, после возвращаем кол-во открытых вкладок")
+    @Step("РљР»РёРєР°РµРј РїРѕ СЃСЃС‹Р»РєРµ Рё РїРµСЂРµС…РѕРґРёРј РЅР° РЅРѕРІСѓСЋ РІРєР»Р°РґРєСѓ С…2, РїРѕСЃР»Рµ РІРѕР·РІСЂР°С‰Р°РµРј РєРѕР»-РІРѕ РѕС‚РєСЂС‹С‚С‹С… РІРєР»Р°РґРѕРє")
     public int getCountOfOpenTabsHandles() {
         int count = 0;
         driver.switchTo().frame(frame);
