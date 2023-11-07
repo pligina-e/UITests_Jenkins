@@ -18,11 +18,14 @@ public class DroppablePage extends BasePage {
         super(webDriver);
     }
 
-    @Step("Перетаскивание элемента в принимающий и возвращение текста принимающего элемента")
-    public String getTextReceivingElement() {
-        Actions actions = new Actions(driver);
+    @Step("Перетаскивание элемента в принимающий")
+    public void dragAndDropElement() {
         driver.switchTo().frame(frame);
-        actions.dragAndDrop(drag, drop).perform();
+        new Actions(driver).dragAndDrop(drag, drop).perform();
+    }
+
+    @Step("Возвращение текста принимающего элемента")
+    public String getTextReceivingElement() {
         return drop.getText();
     }
 }

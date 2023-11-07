@@ -17,6 +17,7 @@ public class ActionDragDropTest extends BaseTest {
     @Story("Пользователь мышкой перетаскивает элемент в принимающий, чтобы текст принимающего элемента изменился")
     public final void dragAndDropTest() {
         DroppablePage droppablePage = new DroppablePage(driver);
+        droppablePage.dragAndDropElement();
         Assert.assertEquals("Dropped!", droppablePage.getTextReceivingElement(), "Текст принимающего элемента не корректен, drag&drop не произошел");
     }
 }
