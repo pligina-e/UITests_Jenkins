@@ -1,26 +1,28 @@
 package tests;
 
+import helpers.DriverFactory;
 import helpers.PropertyProvider;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 
 import java.net.MalformedURLException;
-import java.net.URL;
+import java.time.Duration;
 
 public class BaseTest {
     WebDriver driver;
     public static ThreadLocal<WebDriver> tdriver = new ThreadLocal<WebDriver>();
-    DesiredCapabilities capabilities = new DesiredCapabilities();
+    DriverFactory driverFactory = new DriverFactory();
 
+    @Parameters({"browser", "grid"})
     @BeforeMethod
-    public void setCapabilities() throws MalformedURLException {
-        capabilities.setBrowserName("chrome");
-        capabilities.setPlatform(Platform.WIN10);
-        driver = new RemoteWebDriver(new URL("http://192.168.1.67:4444"), capabilities);
+    public void setUpOnDifferentBrowsers(String browser, String grid) throws MalformedURLException {
+        driver = driverFactory.testOnMultipleBrowsers(browser, grid);
+        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
+        int pageLoadTimeout = Integer.parseInt(PropertyProvider.getInstance().getProperty("page.load.timeout"));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(pageLoadTimeout));
         driver.get(PropertyProvider.getInstance().getProperty("web.url"));
         tdriver.set(driver);
     }

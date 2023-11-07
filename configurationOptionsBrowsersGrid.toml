@@ -1,0 +1,20 @@
+[node]
+detect-drivers = false
+[[node.driver-configuration]]
+max-sessions = 5
+display-name = "Firefox windows10"
+stereotype = "{\"browserName\": \"firefox\", \"browserVersion\": \"93\", \"platformName\": \"WIN10\"}"
+[[node.driver-configuration]]
+max-sessions = 5
+display-name = "Chrome windows10"
+stereotype = "{\"browserName\": \"chrome\", \"browserVersion\": \"118\", \"platformName\": \"WIN10\"}"
+[[node.driver-configuration]]
+display-name = "Safari windows10"
+stereotype = "{\"browserName\": \"safari\", \"browserVersion\": \"5.1.7\", \"platformName\": \"WIN10\"}"
+[[node.driver-configuration]]
+display-name = "IE windows10"
+stereotype = "{\"browserName\": \"internet explorer\", \"platformName\": \"WIN10\"}"
+[[node.driver-configuration]]
+max-sessions = 5
+display-name = "Edge windows10"
+stereotype = "{\"browserName\": \"MicrosoftEdge\", \"platformName\": \"WIN10\"}"
