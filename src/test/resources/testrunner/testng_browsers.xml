@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" parallel="tests" thread-count="6">
+<suite name="All Test Suite" parallel="tests" thread-count="5">
 
     <test name="FirefoxTest">
         <parameter name="browser" value="firefox"/>
@@ -19,7 +19,7 @@
     </test>
 
     <test name="EdgeTest">
-        <parameter name="browser" value="edge"/>
+        <parameter name="browser" value="MicrosoftEdge"/>
         <parameter name="grid" value="without grid"></parameter>
         <classes>
             <class name="tests.PresenceElementsOnHomePageTest"/>
@@ -36,14 +36,6 @@
 
     <test name="SafariTest">
         <parameter name="browser" value="safari"/>
-        <parameter name="grid" value="without grid"></parameter>
-        <classes>
-            <class name="tests.PresenceElementsOnHomePageTest"/>
-        </classes>
-    </test>
-
-    <test name="OperaTest">
-        <parameter name="browser" value="operablink"/>
         <parameter name="grid" value="without grid"></parameter>
         <classes>
             <class name="tests.PresenceElementsOnHomePageTest"/>
