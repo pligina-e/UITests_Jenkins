@@ -9,14 +9,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.TabsPage;
 
-@Epic("Тестирование страницы frames-and-windows.php")
-@Feature("При нажатии на ссылку происходит переход на новую открывшуюся вкладку")
+@Epic("РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ СЃС‚СЂР°РЅРёС†С‹ frames-and-windows.php")
+@Feature("РџСЂРё РЅР°Р¶Р°С‚РёРё РЅР° СЃСЃС‹Р»РєСѓ РїСЂРѕРёСЃС…РѕРґРёС‚ РїРµСЂРµС…РѕРґ РЅР° РЅРѕРІСѓСЋ РѕС‚РєСЂС‹РІС€СѓСЋСЃСЏ РІРєР»Р°РґРєСѓ")
 public class TabsTest extends BaseTest {
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @Story("Пользователь нажимает на ссылку, чтобы перейти на новую вкладку")
+    @Story("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РЅР°Р¶РёРјР°РµС‚ РЅР° СЃСЃС‹Р»РєСѓ, С‡С‚РѕР±С‹ РїРµСЂРµР№С‚Рё РЅР° РЅРѕРІСѓСЋ РІРєР»Р°РґРєСѓ")
     public final void tabsTest() {
         TabsPage tabsPage = new TabsPage(driver);
-        Assert.assertEquals(3, tabsPage.getCountOfOpenTabsHandles(), "Кол-во открытых вкладок не равно трём");
+        Assert.assertEquals(3, tabsPage.getCountOfOpenTabsHandles(), "РљРѕР»-РІРѕ РѕС‚РєСЂС‹С‚С‹С… РІРєР»Р°РґРѕРє РЅРµ СЂР°РІРЅРѕ С‚СЂС‘Рј");
     }
 }
