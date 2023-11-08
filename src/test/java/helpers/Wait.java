@@ -1,5 +1,6 @@
 package helpers;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -40,5 +41,11 @@ public class Wait {
     public static void inputText(WebDriver driver, final WebElement webElement, String text) {
         getInstance(driver).wait.until(ExpectedConditions.visibilityOf(webElement));
         webElement.sendKeys(text);
+    }
+
+    public static void setTextAlertAndClick(WebDriver driver, String text) {
+        Alert alert = getInstance(driver).wait.until(ExpectedConditions.alertIsPresent());
+        alert.sendKeys(text);
+        alert.accept();
     }
 }
