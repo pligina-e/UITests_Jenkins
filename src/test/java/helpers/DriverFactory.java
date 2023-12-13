@@ -39,6 +39,7 @@ public class DriverFactory {
                     cap.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
                     return new InternetExplorerDriver(cap);
                 case "MicrosoftEdge":
+                    System.setProperty("webdriver.edge.driver", PropertyProvider.getInstance().getProperty("edge.driver.path"));
                     return new EdgeDriver();
                 case "safari":
                     return new SafariDriver();
