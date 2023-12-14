@@ -23,10 +23,12 @@ public class DriverFactory {
         } else {
             switch (browser) {
                 case "firefox":
-                    System.setProperty("webdriver.gecko.driver", PropertyProvider.getInstance().getProperty("firefox.driver.path"));
+                    //System.setProperty("webdriver.gecko.driver", PropertyProvider.getInstance().getProperty("firefox.driver.path"));
+                    WebDriverManager.firefoxdriver().setup();
                     return new FirefoxDriver();
                 case "chrome":
-                    System.setProperty("webdriver.chrome.driver", PropertyProvider.getInstance().getProperty("chrome.driver.path"));
+                    //System.setProperty("webdriver.chrome.driver", PropertyProvider.getInstance().getProperty("chrome.driver.path"));
+                    WebDriverManager.chromedriver().setup();
                     return new ChromeDriver();
                 case "internet explorer":
                     System.setProperty("webdriver.ie.driver", PropertyProvider.getInstance().getProperty("ie.driver.path"));
