@@ -13,6 +13,8 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class DriverFactory {
     DesiredCapabilities capabilities = new DesiredCapabilities();
 
