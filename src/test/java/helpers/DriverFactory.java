@@ -29,11 +29,11 @@ public class DriverFactory {
                     WebDriverManager.firefoxdriver().setup();
                     return new FirefoxDriver();
                 case "chrome":
-                    System.setProperty("webdriver.chrome.driver", PropertyProvider.getInstance().getProperty("chrome.driver.path"));
+                    //System.setProperty("webdriver.chrome.driver", PropertyProvider.getInstance().getProperty("chrome.driver.path"));
                     //WebDriverManager.chromedriver().setup();
                     //return new ChromeDriver();
                     WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker().enableVnc().enableRecording();
-                    return wdm.create();
+                    return new ChromeDriver();
                 case "internet explorer":
                     System.setProperty("webdriver.ie.driver", PropertyProvider.getInstance().getProperty("ie.driver.path"));
                     InternetExplorerOptions cap = new InternetExplorerOptions();
