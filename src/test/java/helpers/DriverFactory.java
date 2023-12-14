@@ -29,20 +29,13 @@ public class DriverFactory {
                 case "firefox":
                     //System.setProperty("webdriver.gecko.driver", PropertyProvider.getInstance().getProperty("firefox.driver.path"));
                     WebDriverManager.firefoxdriver().setup();
-                    FirefoxOptions op = new FirefoxOptions();
-                    op.addArguments("--headless");
-                    return new FirefoxDriver(op);
+                    return new FirefoxDriver();
                 case "chrome":
                     //System.setProperty("webdriver.chrome.driver", PropertyProvider.getInstance().getProperty("chrome.driver.path"));
                     //WebDriverManager.chromedriver().setup();
                     //return new ChromeDriver();
-                    //WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker().enableVnc().enableRecording();
-                    //return new ChromeDriver();
-                    ChromeOptions opt = new ChromeOptions();
-                    opt.setBinary(PropertyProvider.getInstance().getProperty("chrome.driver.path"));
-                    opt.addArguments("--headless");
-                    opt.addArguments("--no-sandbox");
-                    return new ChromeDriver(opt);
+                    WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker().enableVnc().enableRecording();
+                    return wdm.create();;
                 case "internet explorer":
                     System.setProperty("webdriver.ie.driver", PropertyProvider.getInstance().getProperty("ie.driver.path"));
                     InternetExplorerOptions cap = new InternetExplorerOptions();
