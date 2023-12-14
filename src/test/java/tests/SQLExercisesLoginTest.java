@@ -10,27 +10,27 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.SQLExercisesPage;
 
-@Epic("Тестирование главной страницы сайта www.sql-ex.ru")
-@Feature("Авторизация")
+@Epic("РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ РіР»Р°РІРЅРѕР№ СЃС‚СЂР°РЅРёС†С‹ СЃР°Р№С‚Р° www.sql-ex.ru")
+@Feature("РђРІС‚РѕСЂРёР·Р°С†РёСЏ")
 public class SQLExercisesLoginTest extends BaseTest {
-    @Test(description = "Авторизация на сайте www.sql-ex.ru")
+    @Test(description = "РђРІС‚РѕСЂРёР·Р°С†РёСЏ РЅР° СЃР°Р№С‚Рµ www.sql-ex.ru")
     @Severity(SeverityLevel.CRITICAL)
-    @Story("Пользователь вводит данные в поля Логин и Пароль, затем нажимает на кнопку Войти, чтобы авторизироваться")
+    @Story("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РІРІРѕРґРёС‚ РґР°РЅРЅС‹Рµ РІ РїРѕР»СЏ Р›РѕРіРёРЅ Рё РџР°СЂРѕР»СЊ, Р·Р°С‚РµРј РЅР°Р¶РёРјР°РµС‚ РЅР° РєРЅРѕРїРєСѓ Р’РѕР№С‚Рё, С‡С‚РѕР±С‹ Р°РІС‚РѕСЂРёР·РёСЂРѕРІР°С‚СЊСЃСЏ")
     public final void loginTest() {
         SQLExercisesPage exercisesPage = new SQLExercisesPage(driver);
         Cookies cookies = new Cookies(driver);
         exercisesPage.fillFields("pligina-e", "1234554321999");
         cookies.createFileWithCookie(driver, "PHPSESSID");
-        Assert.assertTrue(exercisesPage.presenceOfImageButton(), "Авторизация не прошла успешно. Возможно, введены некорректные данные");
+        Assert.assertTrue(exercisesPage.presenceOfImageButton(), "РђРІС‚РѕСЂРёР·Р°С†РёСЏ РЅРµ РїСЂРѕС€Р»Р° СѓСЃРїРµС€РЅРѕ. Р’РѕР·РјРѕР¶РЅРѕ, РІРІРµРґРµРЅС‹ РЅРµРєРѕСЂСЂРµРєС‚РЅС‹Рµ РґР°РЅРЅС‹Рµ");
     }
 
-    @Test(description = "Авторизация на сайте www.sql-ex.ru")
+    @Test(description = "РђРІС‚РѕСЂРёР·Р°С†РёСЏ РЅР° СЃР°Р№С‚Рµ www.sql-ex.ru")
     @Severity(SeverityLevel.CRITICAL)
-    @Story("Авторизация с помощью cookie")
+    @Story("РђРІС‚РѕСЂРёР·Р°С†РёСЏ СЃ РїРѕРјРѕС‰СЊСЋ cookie")
     public final void loginWithCookieTest() {
         SQLExercisesPage exercisesPage = new SQLExercisesPage(driver);
         Cookies cookies = new Cookies(driver);
         cookies.addCookieForLogin(driver, "PHPSESSID");
-        Assert.assertTrue(exercisesPage.presenceOfImageButton(), "Авторизация не прошла успешно. Возможно, cookie неправильно загрузились на сайт");
+        Assert.assertTrue(exercisesPage.presenceOfImageButton(), "РђРІС‚РѕСЂРёР·Р°С†РёСЏ РЅРµ РїСЂРѕС€Р»Р° СѓСЃРїРµС€РЅРѕ. Р’РѕР·РјРѕР¶РЅРѕ, cookie РЅРµРїСЂР°РІРёР»СЊРЅРѕ Р·Р°РіСЂСѓР·РёР»РёСЃСЊ РЅР° СЃР°Р№С‚");
     }
 }
