@@ -15,7 +15,7 @@ public class Cookies extends BasePage {
         super(webDriver);
     }
 
-    @Step("Создание в проекте файла с Cookie")
+    @Step("РЎРѕР·РґР°РЅРёРµ РІ РїСЂРѕРµРєС‚Рµ С„Р°Р№Р»Р° СЃ Cookie")
     public void createFileWithCookie(WebDriver webDriver, String cookieName) {
         File file = new File("Cookies.data");
         try {
@@ -29,7 +29,7 @@ public class Cookies extends BasePage {
         }
     }
 
-    @Step("Чтение cookie из файла проекта и добавление их на сайт для аутентификации")
+    @Step("Р§С‚РµРЅРёРµ cookie РёР· С„Р°Р№Р»Р° РїСЂРѕРµРєС‚Р° Рё РґРѕР±Р°РІР»РµРЅРёРµ РёС… РЅР° СЃР°Р№С‚ РґР»СЏ Р°СѓС‚РµРЅС‚РёС„РёРєР°С†РёРё")
     public void addCookieForLogin(WebDriver webDriver, String cookieName) {
         webDriver.manage().deleteAllCookies();
         try {
