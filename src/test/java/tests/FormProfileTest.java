@@ -9,15 +9,15 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MultiformPage;
 
-@Epic("Тестирование страницы multiform")
-@Feature("Наличие скролла и возможность убирания фокуса")
+@Epic("РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ СЃС‚СЂР°РЅРёС†С‹ multiform")
+@Feature("РќР°Р»РёС‡РёРµ СЃРєСЂРѕР»Р»Р° Рё РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ СѓР±РёСЂР°РЅРёСЏ С„РѕРєСѓСЃР°")
 public class FormProfileTest extends BaseTest {
     @Test
     @Severity(SeverityLevel.CRITICAL)
-    @Story("Пользователь может убрать фокус с поля ввода, а также увидеть скролл на странице")
+    @Story("РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ РјРѕР¶РµС‚ СѓР±СЂР°С‚СЊ С„РѕРєСѓСЃ СЃ РїРѕР»СЏ РІРІРѕРґР°, Р° С‚Р°РєР¶Рµ СѓРІРёРґРµС‚СЊ СЃРєСЂРѕР»Р» РЅР° СЃС‚СЂР°РЅРёС†Рµ")
     public final void multiformPageTest() {
         MultiformPage multiformPage = new MultiformPage(driver);
-        Assert.assertTrue(multiformPage.presenceOfScroll(), "Скролл не найден на странице");
-        Assert.assertTrue(multiformPage.removeFocus(), "Фокус не убран с поля ввода");
+        Assert.assertTrue(multiformPage.presenceOfScroll(), "РЎРєСЂРѕР»Р» РЅРµ РЅР°Р№РґРµРЅ РЅР° СЃС‚СЂР°РЅРёС†Рµ");
+        Assert.assertTrue(multiformPage.removeFocus(), "Р¤РѕРєСѓСЃ РЅРµ СѓР±СЂР°РЅ СЃ РїРѕР»СЏ РІРІРѕРґР°");
     }
 }
