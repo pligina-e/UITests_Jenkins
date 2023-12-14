@@ -37,7 +37,7 @@ public class DriverFactory {
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--no-sandbox");
                     options.addArguments("--disable-dev-shm-usage");
-                    options.addArguments("--headless");
+                    //options.addArguments("--headless");
                     options.addArguments("start-maximized"); // open Browser in maximized mode
                     options.addArguments("disable-infobars"); // disabling infobars
                     options.addArguments("--disable-extensions"); // disabling extensions
