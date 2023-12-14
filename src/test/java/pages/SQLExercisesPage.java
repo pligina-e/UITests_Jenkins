@@ -27,14 +27,14 @@ public class SQLExercisesPage extends BasePage {
     WebElement passwordField;
     @FindBy(css = "input[name='subm1']")
     WebElement submitButton;
-    @FindBy(css = "img[alt='Выход...']")
+    @FindBy(css = "img[alt='Г‚Г»ГµГ®Г¤...']")
     WebElement imageButton;
 
     public SQLExercisesPage(final WebDriver webDriver) {
         super(webDriver);
     }
 
-    @Step("Заполнение поля Логин значением {0}, поля Пароль значением {1}")
+    @Step("Р—Р°РїРѕР»РЅРµРЅРёРµ РїРѕР»СЏ Р›РѕРіРёРЅ Р·РЅР°С‡РµРЅРёРµРј {0}, РїРѕР»СЏ РџР°СЂРѕР»СЊ Р·РЅР°С‡РµРЅРёРµРј {1}")
     public SQLExercisesPage fillFields(String login, String password) {
         inputText(driver, loginField, login);
         inputText(driver, passwordField, password);
@@ -42,7 +42,7 @@ public class SQLExercisesPage extends BasePage {
         return this;
     }
 
-    @Step("Определение наличия кнопки выхода на странице")
+    @Step("РћРїСЂРµРґРµР»РµРЅРёРµ РЅР°Р»РёС‡РёСЏ РєРЅРѕРїРєРё РІС‹С…РѕРґР° РЅР° СЃС‚СЂР°РЅРёС†Рµ")
     public Boolean presenceOfImageButton() {
         waitUntilVisibleElement(driver, imageButton);
         return imageButton.isDisplayed();
