@@ -31,7 +31,7 @@ public class DriverFactory {
                     WebDriverManager.firefoxdriver().setup();
                     return new FirefoxDriver();
                 case "chrome":
-                    //System.setProperty("webdriver.chrome.driver", PropertyProvider.getInstance().getProperty("chrome.driver.path"));
+                    System.setProperty("webdriver.chrome.driver", PropertyProvider.getInstance().getProperty("chrome.driver.path"));
                     //WebDriverManager.chromedriver().setup();
                     //return new ChromeDriver();
                     ChromeOptions options = new ChromeOptions();
