@@ -35,8 +35,8 @@ public class DriverFactory {
                     //WebDriverManager.chromedriver().setup();
                     //return new ChromeDriver();
                     ChromeOptions options = new ChromeOptions();
-                    options.addArguments("--headless");
-                    options.addArguments("--no-sandbox");
+                    //options.addArguments("--headless");
+                    //options.addArguments("--no-sandbox");
                     //options.addArguments("--disable-dev-shm-usage");
                     return new ChromeDriver(options);
                 case "internet explorer":
