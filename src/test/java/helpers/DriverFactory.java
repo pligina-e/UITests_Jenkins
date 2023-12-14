@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -35,8 +36,13 @@ public class DriverFactory {
                     //System.setProperty("webdriver.chrome.driver", PropertyProvider.getInstance().getProperty("chrome.driver.path"));
                     //WebDriverManager.chromedriver().setup();
                     //return new ChromeDriver();
-                    WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker().enableVnc().enableRecording();
-                    return new ChromeDriver();
+                    //WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker().enableVnc().enableRecording();
+                    //return new ChromeDriver();
+                    ChromeOptions opt = new ChromeOptions();
+                    opt.setBinary(PropertyProvider.getInstance().getProperty("chrome.driver.path"));
+                    opt.addArguments("--headless");
+                    opt.addArguments("--no-sandbox");
+                    return new ChromeDriver(opt);
                 case "internet explorer":
                     System.setProperty("webdriver.ie.driver", PropertyProvider.getInstance().getProperty("ie.driver.path"));
                     InternetExplorerOptions cap = new InternetExplorerOptions();
