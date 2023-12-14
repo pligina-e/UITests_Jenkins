@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -27,7 +28,9 @@ public class DriverFactory {
                 case "firefox":
                     //System.setProperty("webdriver.gecko.driver", PropertyProvider.getInstance().getProperty("firefox.driver.path"));
                     WebDriverManager.firefoxdriver().setup();
-                    return new FirefoxDriver();
+                    FirefoxOptions op = new FirefoxOptions();
+                    op.addArguments("--headless");
+                    return new FirefoxDriver(op);
                 case "chrome":
                     //System.setProperty("webdriver.chrome.driver", PropertyProvider.getInstance().getProperty("chrome.driver.path"));
                     //WebDriverManager.chromedriver().setup();
