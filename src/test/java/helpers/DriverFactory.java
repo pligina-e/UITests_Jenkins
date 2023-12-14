@@ -31,11 +31,12 @@ public class DriverFactory {
                     WebDriverManager.firefoxdriver().setup();
                     return new FirefoxDriver();
                 case "chrome":
-                    //System.setProperty("webdriver.chrome.driver", PropertyProvider.getInstance().getProperty("chrome.driver.path"));
+                    System.setProperty("webdriver.chrome.driver", PropertyProvider.getInstance().getProperty("chrome.driver.path"));
                     //WebDriverManager.chromedriver().setup();
                     //return new ChromeDriver();
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("start-maximized"); // open Browser in maximized mode
+                    options.addArguments("--disable-dev-shm-usage");
                     options.addArguments("disable-infobars"); // disabling infobars
                     options.addArguments("--disable-extensions"); // disabling extensions
                     options.addArguments("--disable-gpu"); // applicable to windows os only
