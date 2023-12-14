@@ -35,7 +35,7 @@ public class DriverFactory {
                     //WebDriverManager.chromedriver().setup();
                     //return new ChromeDriver();
                     WebDriverManager wdm = WebDriverManager.chromedriver().browserInDocker().enableVnc().enableRecording();
-                    return wdm.create();;
+                    return wdm.create();
                 case "internet explorer":
                     System.setProperty("webdriver.ie.driver", PropertyProvider.getInstance().getProperty("ie.driver.path"));
                     InternetExplorerOptions cap = new InternetExplorerOptions();
